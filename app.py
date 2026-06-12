@@ -424,7 +424,7 @@ df["Risk Level"] = df.apply(risk_level, axis=1)
 # HELPERS
 # -----------------------------
 def euro(x):
-    return f"€{x:,.0f}"
+    return f"${x:,.0f}"
 
 def kpi(label, value, sub=""):
     st.markdown(
@@ -835,7 +835,7 @@ def executive_overview():
             height=360,
             color_discrete_sequence=["#1f6fb2"],
         )
-        fig.update_traces(texttemplate="€%{text:,.0f}", textposition="outside")
+        fig.update_traces(texttemplate="$%{text:,.0f}", textposition="outside")
         fig.update_layout(
             xaxis_title="",
             yaxis_title="Value at Risk",
@@ -888,7 +888,7 @@ def executive_overview():
                 hovertemplate=(
                     "<b>%{label}</b><br>"
                     "Share: %{percent}<br>"
-                    "Inventory Value: €%{value:,.0f}"
+                    "Inventory Value: $%{value:,.0f}"
                     "<extra></extra>"
                 ),
             )
@@ -1371,7 +1371,7 @@ def persona_workspaces():
             height=380,
             color_discrete_sequence=["#1f6fb2"],
         )
-        fig.update_traces(texttemplate="€%{text:,.0f}", textposition="outside")
+        fig.update_traces(texttemplate="$%{text:,.0f}", textposition="outside")
         fig.update_layout(
             paper_bgcolor="#ffffff",
             plot_bgcolor="#ffffff",
@@ -1471,10 +1471,10 @@ def persona_workspaces():
 
     with tabs[5]:
         queue = pd.DataFrame([
-            ["Berlin Neuro Center","Release 70 Optima Coil units for Madrid","High","€203K"],
-            ["Munich Stroke Hospital","Release 40 Optima Coil units for Barcelona","High","€115K"],
-            ["Milan Distributor","Negotiate redistribution pool for Squid","Medium","€178K"],
-            ["Lyon Hospital","Confirm next 60-day Squid procedure demand","Medium","€72K"],
+            ["Berlin Neuro Center","Release 70 Optima Coil units for Madrid","High","$203K"],
+            ["Munich Stroke Hospital","Release 40 Optima Coil units for Barcelona","High","$115K"],
+            ["Milan Distributor","Negotiate redistribution pool for Squid","Medium","$178K"],
+            ["Lyon Hospital","Confirm next 60-day Squid procedure demand","Medium","$72K"],
         ], columns=["Account","Recommended Action","Priority","Potential Value"])
 
         c1, _ = st.columns(2)
@@ -1872,7 +1872,7 @@ def scenario_simulator():
             margin=dict(l=20, r=20, t=100, b=110),
         )
         fig.update_xaxes(tickangle=-20)
-        fig.update_yaxes(tickprefix="€", separatethousands=True)
+        fig.update_yaxes(tickprefix="$", separatethousands=True)
         st.plotly_chart(fig, use_container_width=True)
 
     with c2:
@@ -1914,7 +1914,7 @@ def scenario_simulator():
             legend=dict(orientation="h", yanchor="bottom", y=1.05, xanchor="left", x=0),
             margin=dict(l=20, r=20, t=100, b=60),
         )
-        fig.update_xaxes(tickprefix="€", separatethousands=True)
+        fig.update_xaxes(tickprefix="$", separatethousands=True)
         fig.update_yaxes(ticksuffix="%")
         st.plotly_chart(fig, use_container_width=True)
 
